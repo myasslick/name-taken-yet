@@ -22,7 +22,7 @@ before_script:
   - sleep 3
 install:
   - python setup.py develop
-#env:
+env:
 #  - CHROME_DRIVER_PATH=/tmp/chromedriver
   - CHROME_DRIVER_PATH=/usr/lib/chromium-browser/chromedriver
 script: pytest
