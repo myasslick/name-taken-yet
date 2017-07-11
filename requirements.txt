@@ -1,0 +1,6 @@
+# search required libraries
+selenium==3.4.3
+google-api-python-client==1.6.2
+
+# web service
+flask==0.12.2
