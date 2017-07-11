@@ -13,8 +13,8 @@ python:
 before_install:
   - sudo apt-get update
   - sudo apt-get install chromium-chromedriver
-  - wget https://chromedriver.storage.googleapis.com/2.30/chromedriver_linux64.zip -O /tmp/chromedriver
-  - chmod 777 /tmp/chromedriver
+#  - wget https://chromedriver.storage.googleapis.com/2.30/chromedriver_linux64.zip -O /tmp/chromedriver
+#  - chmod 777 /tmp/chromedriver
 before_script:
   - "export PATH=$PATH:/usr/lib/chromium-browser/"
   - "export DISPLAY=:99.0"
@@ -22,6 +22,7 @@ before_script:
   - sleep 3
 install:
   - python setup.py develop
-env:
-  - CHROME_DRIVER_PATH=/tmp/chromedriver
+#env:
+#  - CHROME_DRIVER_PATH=/tmp/chromedriver
+   - CHROME_DRIVER_PATH=/usr/lib/chromium-browser/chromedriver
 script: pytest
