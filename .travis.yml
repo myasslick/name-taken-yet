@@ -1,0 +1,19 @@
+sudo: required
+dist: trusty
+addons:
+  apt:
+    sources:
+      - google-chrome
+    packages:
+      - google-chrome-stable
+
+language: python
+python:
+  - "2.7"
+before_install:
+  - wget https://chromedriver.storage.googleapis.com/2.30/chromedriver_linux64.zip -O /tmp/chromedriver
+install:
+  - python setup.py develop
+env:
+  - CHROME_DRIVER_PATH=/tmp/chromedriver
+script: pytest
