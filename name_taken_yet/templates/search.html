@@ -1,0 +1,23 @@
+<!doctype html>
+<head>
+  <title>Haz Thy Name Taken Yet?</title>
+  <script>
+    p {
+       margin: 0px;
+       padding: 0px;
+    }
+  </script>
+</head>
+
+<body>
+
+ <form method="POST">
+  Search term: <input type="text" name="term" placeholder="type your a channel name" size="40"><br>
+  <input type="submit" value="Submit">
+</form>
+    {% if search_results is defined %}
+    <hr />
+    <h3>Results:</h3>
+    {{ search_results.decode('utf-8') | safe}}
+    {% endif %}
+</body>

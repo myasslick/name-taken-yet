@@ -21,6 +21,7 @@ def youtube_search(search_term):
     search_response = youtube.search().list(
         q=search_term,
         part="snippet",
+        type="channel",
         maxResults=5
     ).execute()
 
@@ -51,14 +52,13 @@ def process_search_result(desired_title, response):
 
     """
 
-    results = {"exact": None, "similar": []}
-    print(response)
+    results = {"exact": [], "similar": []}
     for result in response.get("items", []):
         snippet = result["snippet"]
         r_title = snippet["title"]
         if (desired_title == r_title
             or desired_title.lower() == r_title.lower()):
-            results["exact"] = get_channel_details(snippet)
+            results["exact"].append(get_channel_details(snippet))
         else:
             results["similar"].append(
                 get_channel_details(snippet))
